@@ -9,7 +9,7 @@ int main()
     wprintf(L"Bem vindo ao nosso jogo de adivinhação\n");
     printf("--------------------------------------\n");
 
-    int numeroSecreto = 42, chute, tentativa = 1;
+    int numeroSecreto = 42, chute, tentativa = 1, pontos=1000;
 
     while (1) {
         wprintf(L"Tentativa %d\n", tentativa);
@@ -33,9 +33,12 @@ int main()
             wprintf(L"Seu chute foi menor que o número secreto.\n");
         }
         tentativa++;
+        int pontosPerdidos = (chute - numeroSecreto) / 2;
+        pontos -= pontosPerdidos;
     }
     wprintf(L"Fim de jogo!\n");
-    wprintf(L"Você acertou na %dª tentativa", tentativa);
+    wprintf(L"Você acertou na %dª tentativa\n", tentativa);
+    wprintf(L"Total de pontos: %d\n", pontos);
 
     return 0;
 }
